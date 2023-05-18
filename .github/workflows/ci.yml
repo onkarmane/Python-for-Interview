@@ -27,7 +27,7 @@ name: Python CI
 on:
   push:
     branches:
-      - master
+      - master-fe
 jobs:
   deploy:
     runs-on: ubuntu-latest
