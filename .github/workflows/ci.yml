@@ -1,26 +1,45 @@
-name: Python CI
+# name: Python CI
 
+# on:
+#   push:
+#     branches:
+#       - master  # Change this to the branch you want to trigger the workflow on
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Set up Python
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: '3.x'  # Change this to the desired Python version
+
+#     - name: Checkout code
+#       uses: actions/checkout@v3
+      
+#     - name: Run Python script
+#       run: python count.py  # Replace with the name of your Python script
+      
+#     - name: Run Python script
+#       run: python anagram.py  # Replace with the name of your Python script
+name: Python CI      
 on:
   push:
     branches:
-      - master  # Change this to the branch you want to trigger the workflow on
-
+      - master
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'  # Change this to the desired Python version
-
-    - name: Checkout code
-      uses: actions/checkout@v3
-      
-    - name: Run Python script
-      run: python count.py  # Replace with the name of your Python script
-      
-    - name: Run Python script
-      run: python anagram.py  # Replace with the name of your Python script
-      
+     - name: Checkout repository
+       uses: actions/checkout@v2
+            
+     - name: Copy master-fe directory
+       run: cp -r master-fe/* .
+            
+     - name: Upload artifacts
+       uses: actions/upload-artifact@v2
+       with:
+            name: master-fe
+            path: .
