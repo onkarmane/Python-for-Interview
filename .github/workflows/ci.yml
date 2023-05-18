@@ -36,7 +36,7 @@ jobs:
        uses: actions/checkout@v2
             
      - name: Copy master-fe directory
-       run: cp -r master-fe/* .
+       run: cp -r master-fe .
             
      - name: Upload artifacts
        uses: actions/upload-artifact@v2
