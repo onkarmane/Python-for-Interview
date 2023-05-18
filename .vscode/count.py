@@ -1,5 +1,5 @@
 # Write a function to count the occurrences of each character in a given string.
-# Write
+# Wri
 x = 'sssssssuuuuuupp'
 d = {}
 for item in x:
