@@ -20,3 +20,7 @@ jobs:
       
     - name: Run Python script
       run: python count.py  # Replace with the name of your Python script
+      
+    - name: Run Python script
+      run: python anagram.py  # Replace with the name of your Python script
+      
