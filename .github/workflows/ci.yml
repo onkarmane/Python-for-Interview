@@ -23,23 +23,25 @@
       
 #     - name: Run Python script
 #       run: python anagram.py  # Replace with the name of your Python script
-name: Python CI      
+name: Python CI
+
 on:
   push:
     branches:
-      - master-fe
+      - master
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-     - name: Checkout repository
-       uses: actions/checkout@v2
+        deploy:
+          runs-on: ubuntu-latest
+          steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
             
-     - name: Copy master-fe directory
-       run: cp -r master-fe .
+            - name: Copy master-fe directory
+              run: cp -r master-fe/* .
             
-     - name: Upload artifacts
-       uses: actions/upload-artifact@v2
-       with:
-            name: master-fe
-            path: .
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v2
+              with:
+                name: master-fe
+                path: .
+      
