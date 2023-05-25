@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 name: Deploy
+=======
+name: Python CI
+>>>>>>> 46609ae7dadaf0e99a3c45ca2fed9e6b3a96ad9e
 
 on:
   push:
     branches:
       - master
+<<<<<<< HEAD
 
 jobs:
   deploy:
@@ -20,3 +25,21 @@ jobs:
 
       - name: Deploy script
         run: python deploy_script.py
+=======
+jobs:
+        deploy:
+          runs-on: ubuntu-latest
+          steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            
+            - name: Copy master-fe directory
+              run: cp -r master-fe/* .
+            
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v2
+              with:
+                name: master-fe
+                path: .
+      
+>>>>>>> 46609ae7dadaf0e99a3c45ca2fed9e6b3a96ad9e
